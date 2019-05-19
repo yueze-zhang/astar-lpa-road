@@ -62,12 +62,12 @@ public class AStar
 		Node current = null;
 		while (comprise(current, mapInfo)|| mapInfo.end.G != mapInfo.end.RHS)
 		{
-			if (isCoordInClose(mapInfo.end.coord))
+			current = openList.poll();
+			if (isCoordEnd(current.coord,mapInfo.end.coord))
 			{
-				drawPath(mapInfo.maps, mapInfo.end);
+				drawPath(mapInfo.maps, current);
 				break;
 			}
-			current = openList.poll();
 			if (current.G > current.RHS) {
 				current.G = current.RHS;
 				addNeighborNodeInOpen(mapInfo,current);
@@ -185,6 +185,12 @@ public class AStar
 		if (isCoordInClose(x, y)) return false;
 
 		return true;
+	}
+
+	//判断是否是结尾
+	private boolean isCoordEnd(Coord coord, Coord mapEndCoord){
+		if (coord.x == mapEndCoord.x && coord.y == mapEndCoord.y)return true;
+		return false;
 	}
 
 	/**
