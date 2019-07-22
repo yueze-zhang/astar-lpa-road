@@ -17,13 +17,11 @@ public class AStar
 {
 	public final static int BAR = 1; // 障碍值
 	public final static int PATH = 2; // 路径
-	public final static int DIRECT_VALUE = 10; // 横竖移动代价
-	public final static int OBLIQUE_VALUE = 14; // 斜移动代价
-	
+	public final static int DIRECT_VALUE = 1; // 横竖移动代价
+	public final static int OBLIQUE_VALUE = 1; // 斜移动代价
 	Queue<Node> openList = new PriorityQueue<Node>(); // 优先队列(升序)
 	List<Node> closeList = new ArrayList<Node>();
 	List<Node> succeedList = new ArrayList<Node>();
-	
 	/**
 	 * 开始算法
 	 */
@@ -77,6 +75,7 @@ public class AStar
 				addNeighborNodeInOpen(mapInfo,current);
 			}
 			closeList.add(current);
+			drawPath(mapInfo.maps, current);
 		}
 	}
 	

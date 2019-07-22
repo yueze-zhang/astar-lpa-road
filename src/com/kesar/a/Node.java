@@ -1,5 +1,7 @@
 package com.kesar.a;
 
+import java.util.Arrays;
+
 import static java.lang.Math.min;
 import static javafx.scene.input.KeyCode.O;
 
@@ -43,17 +45,34 @@ public class Node implements Comparable<Node>
 
 	@Override
 	public int compareTo(Node o)
-	{
-		if (o == null) return -1;
-		//K1
-		int K1 = min(G,RHS)+H;
-		int OK1 = min(o.G, o.RHS)+o.H;
-		int K2 = min(G,RHS);
-		int OK2 = min(o.G, o.RHS);
-		if (K1> OK1) return 1;
-		if (K1< OK1) return -1;
-		if (K2> OK2) return 1;
-		if (K2< OK2) return -1;
-		return 0;
+{
+    if (o == null) return -1;
+    //K1
+    int K1 = min(G,RHS)+H;
+    int OK1 = min(o.G, o.RHS)+o.H;
+    int K2 = min(G,RHS);
+    int OK2 = min(o.G, o.RHS);
+    if (K1> OK1) return 1;
+    if (K1< OK1) return -1;
+    if (K2> OK2) return 1;
+    if (K2< OK2) return -1;
+    return 0;
+}
+
+	@Override
+	public String toString() {
+		StringBuffer s = new StringBuffer();
+		s.append("X=");
+		s.append(coord.x);
+		s.append(" Y=");
+		s.append(coord.y);
+		s.append(" G=");
+		s.append(G);
+		s.append(" H=");
+		s.append(H);
+		s.append(" rhs=");
+		s.append(RHS);
+
+		return s.toString();
 	}
 }

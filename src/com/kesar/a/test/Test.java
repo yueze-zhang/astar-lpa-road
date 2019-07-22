@@ -8,19 +8,18 @@ public class Test
 	public static void main(String[] args)
 	{
 		int[][] maps = { 
-				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-				{ 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0 },
-				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0 },
-				{ 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0 },
-				{ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-				{ 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 } 
+				{ 0, 0, 0, 0},
+				{ 1, 0, 1, 0},
+				{ 1, 0, 1, 0},
+				{ 1, 0, 1, 0},
+				{ 1, 0, 1, 0},
+				{ 0, 0, 0, 0}
 				};
-		MapInfo info=new MapInfo(maps,maps[0].length, maps.length,new Node(1, 5), new Node(10, 5));
+		MapInfo info=new MapInfo(maps,maps[0].length, maps.length,new Node(3, 0), new Node(0, 5));
 		new AStar().start(info);
 		printMap(maps);
 	}
-	
+
 	/**
 	 * 打印地图
 	 */
